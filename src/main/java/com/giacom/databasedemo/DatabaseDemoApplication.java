@@ -41,7 +41,5 @@ public class DatabaseDemoApplication {
         for (Person person : findAll) {
             System.out.println(person.getId() + ":" + person.getName());
         }
-
     }
-
 }

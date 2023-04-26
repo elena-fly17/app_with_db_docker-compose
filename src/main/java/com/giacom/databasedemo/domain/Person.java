@@ -28,8 +28,6 @@ public class Person {
         this.birthDate = birthDate;
     }
 
-    //Generate getters and setters
-
     public Long getId() {
         return id;
     }

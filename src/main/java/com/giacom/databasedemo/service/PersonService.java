@@ -45,5 +45,4 @@ public class PersonService {
     public void delete(Person person) {
         personPersistence.delete(person);
     }
-
 }
