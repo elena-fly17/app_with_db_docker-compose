@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: employeedb
+
+  app_DB_docker_compose:
+    container_name: app_DB_docker_compose
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb
+    restart: on-failure
