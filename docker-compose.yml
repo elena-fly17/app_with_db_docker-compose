@@ -1,18 +1,21 @@
-version: "3.8"
+version: '3'
 
 services:
   mysqldb:
-    container_name: mysqldb
-    image: mysql
+    image: 'mysql'
+    restart: always
+    container_name: 'java-mysqldb'
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: employeedb
+      - MYSQL_DATABASE=employeedb
+      - MYSQL_USER=empus
+      - MYSQL_PASSWORD=12345
+      - MYSQL_ROOT_PASSWORD=12345
 
-  app_DB_docker_compose:
-    container_name: app_DB_docker_compose
-    build:
-      context: ./
-      dockerfile: Dockerfile
+  app:
+    build: ./
+    container_name: 'java-app'
+    restart: always
+    ports:
+      - 8080:8080
     depends_on:
       - mysqldb
-    restart: on-failure
